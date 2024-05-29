@@ -1,0 +1,20 @@
+# Auth with polkit-gnome:
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Desktop notifications
+exec mako
+
+# Network Applet
+exec nm-applet --indicator
+
+# clipboard manager
+exec wl-paste --watch cliphist store
+     
+# Welcome App
+exec dex -a -s /etc/xdg/autostart/:~/.config/autostart/  
+
+# Sway Fader
+# exec python3 ~/.config/sway/scripts/swayfader.py
+
+# Dynamic display onfigurator
+exec kanshi

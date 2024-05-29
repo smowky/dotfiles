@@ -1,0 +1,14 @@
+profile {
+  output eDP-1 mode 1920x1080@60.000Hz position 0,0
+  output "BNQ BenQ GW2470 G6H01576019" mode 1920x1080@60.000Hz position 1920,0
+  output "BNQ BenQ GW2470 6AF02336019" mode 1920x1080@60.000Hz position 3840,0 
+}
+
+profile {
+  output "BNQ BenQ GW2470 G6H01576019" mode 1920x1080@60.000Hz position 0,0
+  output "BNQ BenQ GW2470 6AF02336019" mode 1920x1080@60.000Hz position 1920,0
+}
+
+profile {
+  output eDP-1 mode 1920x1080@60.000Hz position 0,0
+}
