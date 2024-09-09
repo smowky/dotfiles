@@ -10,7 +10,9 @@ Dynamic output management
 Tiling WM running on wayland protocol
 
 ## waybar
-bars everywhere
-
+### Info
+Bars everywhere
+### Docs
+- https://man.archlinux.org/man/extra/waybar/waybar-clock.5.en
 ## wofi
-launcher menu
+Launcher menu
