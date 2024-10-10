@@ -148,6 +148,10 @@ bindsym $mod+u\
   move workspace to output left,\
   focus output right
 
+# Rename workspace
+bindsym $mod+Shift+r exec ~/.config/sway/scripts/ws-rename.sh
+
+
 #
 # Layout stuff:
 #
@@ -257,3 +261,4 @@ bindsym $mod+r mode "resize"
 #
     bindsym $mod+p exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy
 
+# vim: filetype=swayconfig
