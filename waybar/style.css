@@ -55,7 +55,7 @@ Arc-Dark Color Scheme
 #waybar {
     background: transparent;
     color: #bebebe;
-    background-color: @base1;
+    /* background-color: @base1; */
     font-family: UbuntuMono;
     font-size: 14px;
 }
