@@ -11,10 +11,19 @@ exec nm-applet --indicator
 exec wl-paste --watch cliphist store
      
 # Welcome App
-exec dex -a -s /etc/xdg/autostart/:~/.config/autostart/  
+exec dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 # Sway Fader
 # exec python3 ~/.config/sway/scripts/swayfader.py
 
 # Dynamic display onfigurator
 exec kanshi
+
+# Start tasks manager planify directly to scratchpad
+exec planify
+for_window [app_id="io.github.alainm23.planify"] move to scratchpad
+
+# Start obsidian directly to scratchpad
+exec obsidian
+for_window [class="obsidian"] move to scratchpad
+

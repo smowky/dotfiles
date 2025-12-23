@@ -16,3 +16,5 @@ Bars everywhere
 - https://man.archlinux.org/man/extra/waybar/waybar-clock.5.en
 ## wofi
 Launcher menu
+## nvim/lazyvim
+- should include everythin nvim & on top of it existing lazyvim configuration
