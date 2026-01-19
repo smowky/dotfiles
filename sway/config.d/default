@@ -193,7 +193,7 @@ bindsym $mod+Shift+r exec ~/.config/sway/scripts/ws-rename.sh
     # Keep separate scratchpad for Keybinding for planify
     bindsym $mod+f1 [app_id="io.github.alainm23.planify"] scratchpad show
     # Keep separate scratchpad for Keybinding for obsidian
-    bindsym $mod+f2 [class=obsidian] scratchpad show
+    bindsym $mod+f2 [app_id=obsidian] scratchpad show
 #
 # Resizing containers:
 #
