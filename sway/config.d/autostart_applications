@@ -24,7 +24,7 @@ exec planify
 for_window [app_id="io.github.alainm23.planify"] move to scratchpad
 
 # Start obsidian directly to scratchpad
-# use `swaymsg -t get_tree` to get app_id
+# use `swaymsg -t get_tree` to get app_id and use
 exec obsidian
 for_window [app_id="obsidian"] move to scratchpad
 
