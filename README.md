@@ -6,6 +6,7 @@
 ## kanshi
 Dynamic output management
 
+
 ## sway
 Tiling WM running on wayland protocol
 
