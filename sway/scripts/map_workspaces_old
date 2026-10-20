@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Wait until at least 1 external monitor is active
+for i in {1..10}; do
+    outputs=$(swaymsg -t get_outputs | jq -r '.[] | select(.active) | .name')
+    if [[ -n "$outputs" ]]; then
+        break
+    fi
+    sleep 0.5
+done
+
+for output in $outputs; do
+    case "$output" in
+        "G6H01576019")
+            for ws in 1 2 3 4 5; do
+                swaymsg "workspace $ws; move workspace to output left"
+            done
+            ;;
+        "6AF02336019")
+            for ws in 6 7 8 9 0; do
+                swaymsg "workspace $ws; move workspace to output right"
+            done
+            ;;
+        *)
+            echo "Unknown output: $output"
+            ;;
+    esac
+done

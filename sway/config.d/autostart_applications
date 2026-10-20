@@ -1,30 +1,59 @@
 # Auth with polkit-gnome:
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+# Import environment variables for user systemd service manager
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+
+# Update dbus environments with display variables
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+
+# Idle configuration
+exec swayidle idlehint 1
+#exec_always swayidle -w before-sleep "gtklock -d" # debugging red screen sleep/wakeup
+#exec_always pkill swayidle; ~/.config/sway/scripts/swayidle-hooks.sh
+
 # Desktop notifications
 exec mako
 
+# Start foot server
+exec_always --no-startup-id foot --server
+
+# Autotiling
+exec autotiling
+
+# cliphist
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+     
 # Network Applet
 exec nm-applet --indicator
 
-# clipboard manager
-exec wl-paste --watch cliphist store
-     
+# Firewall Applet
+exec sleep 2 && firewall-applet
+
 # Welcome App
-exec dex -a -s /etc/xdg/autostart/:~/.config/autostart/
+exec eos-welcome --startdelay=3
 
 # Sway Fader
 # exec python3 ~/.config/sway/scripts/swayfader.py
 
-# Dynamic display onfigurator
-exec kanshi
+# nwg-drawer
+exec_always nwg-drawer -r -c 7 -is 90 -mb 10 -ml 50 -mr 50 -mt 10
 
-# Start tasks manager planify directly to scratchpad
+# sway speciffic systemd units
+# https://wiki.archlinux.org/title/Sway#Manage_Sway-specific_daemons_with_systemd
+exec_always systemctl --user start sway-session.target
+
+# Start tasks directly to scratchpad
+# use `swaymsg -t get_tree` to get app_id and use
+
 exec planify
 for_window [app_id="io.github.alainm23.planify"] move to scratchpad
-
-# Start obsidian directly to scratchpad
-# use `swaymsg -t get_tree` to get app_id and use
+ 
 exec obsidian
 for_window [app_id="obsidian"] move to scratchpad
+
+exec /usr/bin/morgen --no-startup-id
+for_window [app_id="Morgen"] move to scratchpad
 

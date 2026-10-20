@@ -8,20 +8,33 @@
 #
 # You can also bind workspaces 1,2,3 to specific outputs
 #
- workspace 1 output DP-5
- workspace 2 output DP-5
- workspace 3 output DP-5
- workspace 4 output DP-5
- workspace 5 output DP-5
- workspace 6 output DP-4
- workspace 7 output DP-4
- workspace 8 output DP-4
- workspace 9 output DP-4
- workspace 0 output DP-4
 #
 # Wacom Tablet - Example
 #   input "1386:883:Wacom_Intuos_S_Pad" map_to_output HDMI-A-1
 #   input "1386:883:Wacom_Intuos_S_Pen" map_to_output HDMI-A-1
 #
-
 #output bg * /usr/share/endeavouros/backgrounds/eos_wallpapers_community/stars.png fill
+#
+workspace 1 output $SWAY_LEFT_OUTPUT
+workspace 2 output $SWAY_LEFT_OUTPUT
+workspace 3 output $SWAY_LEFT_OUTPUT
+workspace 4 output $SWAY_LEFT_OUTPUT
+workspace 5 output $SWAY_LEFT_OUTPUT
+workspace 6 output $SWAY_RIGHT_OUTPUT
+workspace 7 output $SWAY_RIGHT_OUTPUT
+workspace 8 output $SWAY_RIGHT_OUTPUT
+workspace 9 output $SWAY_RIGHT_OUTPUT
+workspace 0 output $SWAY_RIGHT_OUTPUT
+
+
+# Run workspace mapping script on output events
+# This triggers every time a monitor connects/disconnects
+for_window [con_mark="workspace_mapper"] exec_always ~/.config/sway/scripts/map_workspaces.sh
+
+# Better: use output event directly (Sway 1.6+)
+# The correct syntax:
+# bindsym --to-code <key> output <name> exec ...
+# Instead, Sway supports "exec" on "output" events:
+# We'll use the "output *" event:
+#
+# exec_always "systemctl --user restart kanshi.service"

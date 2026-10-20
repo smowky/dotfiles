@@ -1,25 +1,32 @@
-profile {
-  output eDP-1 mode 1920x1080@60.000Hz position 0,0
+profile home_3_monitors {
+  output "eDP-1" mode 1920x1200@60.001Hz position 0,0
   output "BNQ BenQ GW2470 G6H01576019" mode 1920x1080@60.000Hz position 1920,0
-  output "BNQ BenQ GW2470 6AF02336019" mode 1920x1080@60.000Hz position 3840,0 
+  output "BNQ BenQ GW2470 6AF02336019" mode 1920x1080@60.000Hz position 3840,0
+  exec ~/.config/sway/scripts/map_workspaces.sh
 }
 
-profile {
+profile home_2_monitors {
+  output "eDP-1" disable
   output "BNQ BenQ GW2470 G6H01576019" mode 1920x1080@60.000Hz position 0,0
   output "BNQ BenQ GW2470 6AF02336019" mode 1920x1080@60.000Hz position 1920,0
+  exec ~/.config/sway/scripts/map_workspaces.sh
 }
 
-profile {
-  output eDP-1 mode 1920x1080@60.000Hz position 0,0
+profile laptop_only {
+  output eDP-1 mode 1920x1200@60.001Hz position 0,0
 }
 
-profile {
-  output eDP-1 mode 1920x1080@60.012Hz position 0,0
+profile work_3_monitors {
+  output eDP-1 mode 1920x1200@60.001Hz position 0,0
   output "HP Inc. HP Z24i G2 6CM0200NNQ" mode 1920x1200@59.950Hz position 1920,0
   output "HP Inc. HP Z24i G2 6CM0420J2S" mode 1920x1200@59.950Hz position 3840,0
+  exec ~/.config/sway/scripts/map_workspaces.sh
 }
 
-profile {
+profile work_22monitors {
+  output eDP-1 disable
   output "HP Inc. HP Z24i G2 6CM0200NNQ" mode 1920x1200@59.950Hz position 0,0
   output "HP Inc. HP Z24i G2 6CM0420J2S" mode 1920x1200@59.950Hz position 1920,0
+  exec ~/.config/sway/scripts/map_workspaces.sh
 }
+
